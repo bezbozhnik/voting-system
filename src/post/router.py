@@ -1,10 +1,11 @@
 from fastapi import APIRouter, Depends, status
 
-from src.post import service
 from src.auth.jwt import parse_jwt_user_data
 from src.auth.schemas import JWTData
-from src.post.schemas import CreatePost
 from src.database import VoteType
+from src.post import service
+from src.post.schemas import CreatePost
+
 router = APIRouter()
 
 

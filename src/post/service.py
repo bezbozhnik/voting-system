@@ -4,7 +4,7 @@ from typing import Any
 from sqlalchemy import insert, select
 
 from src.auth.schemas import JWTData
-from src.database import Post, fetch_one, VoteType, Voter
+from src.database import Post, Voter, VoteType, fetch_one
 from src.post.schemas import CreatePost
 
 

@@ -10,7 +10,7 @@ from src.auth.config import auth_config
 from src.auth.exceptions import InvalidCredentials
 from src.auth.schemas import AuthUser
 from src.auth.security import check_password, hash_password
-from src.database import User, execute, fetch_one, Token
+from src.database import Token, User, execute, fetch_one
 
 
 async def create_user(user: AuthUser) -> dict[str, Any] | None:

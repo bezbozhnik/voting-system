@@ -1,31 +1,14 @@
 import enum
 from typing import Any
 
-from sqlalchemy import (
-    Boolean,
-    Column,
-    CursorResult,
-    DateTime,
-    ForeignKey,
-    Identity,
-    Insert,
-    Integer,
-    LargeBinary,
-    MetaData,
-    Select,
-    String,
-    desc,
-    Update,
-    func,
-    select,
-    update,
-    insert,
-    delete,
-    Enum,
-)
+from sqlalchemy import (Boolean, Column, CursorResult, DateTime, Enum,
+                        ForeignKey, Identity, Insert, Integer, LargeBinary,
+                        MetaData, Select, String, Update, delete, desc, func,
+                        insert, select, update)
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.ext.asyncio import create_async_engine
 from sqlalchemy.orm import declarative_base, relationship
+
 from src.config import settings
 from src.constants import DB_NAMING_CONVENTION
 

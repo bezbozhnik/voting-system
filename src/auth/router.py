@@ -3,13 +3,11 @@ from typing import Any
 from fastapi import APIRouter, BackgroundTasks, Depends, Response, status
 
 from src.auth import jwt, service, utils
-from src.auth.dependencies import (
-    valid_refresh_token,
-    valid_refresh_token_user,
-    valid_user_create,
-)
+from src.auth.dependencies import (valid_refresh_token,
+                                   valid_refresh_token_user, valid_user_create)
 from src.auth.jwt import parse_jwt_user_data
-from src.auth.schemas import AccessTokenResponse, AuthUser, JWTData, UserResponse
+from src.auth.schemas import (AccessTokenResponse, AuthUser, JWTData,
+                              UserResponse)
 
 router = APIRouter()
 
