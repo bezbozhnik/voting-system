@@ -31,3 +31,6 @@
 - Python 3.12
 - FastAPI ~=0.109.0
 - Postgres 14.1
+# Что добавить
+- Веб-сервер Nginx | Apache
+- При большей нагруженности можно добавить Redis(fastapi-cache2), либо очереди от RabbitMQ
