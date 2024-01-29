@@ -114,6 +114,7 @@ class Voter(Base):
                     await conn.execute(select(cls).where(cls.user_id == user_id, cls.post_id == post_id))).first():
                 if vote.rate != rating:
                     await conn.execute(update(Post).values(rating=Post.rating + 2 * rating).where(Post.id == post_id))
+                return
             else:
                 await conn.execute(
                     update(Post).values(
