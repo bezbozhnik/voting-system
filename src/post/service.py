@@ -34,7 +34,7 @@ async def get_post_by_id(post_id: int) -> dict[str, Any] | None:
 async def vote(post_id: int, rating: VoteType, user: JWTData) -> dict[str, Any] | None:
     if not rating:
         await Voter().cancel(user.user_id, post_id)
-        return
+        return # noqa
     return await Voter().change(rating, user.user_id, post_id)
 
 
