@@ -28,17 +28,30 @@ services:
       - ./scripts/postgres:/scripts
     ports:
       - "65432:5432"
-
-  app_redis:
-    image: redis:6.2-alpine
-    hostname: redis
-    container_name: app_redis_1
-    command:
-      - 'redis-server'
-      - '--requirepass myStrongPassword'
-    ports:
-      - 36379:6379
-
+# Для примера контейнер redis
+#  app_redis:
+#    image: redis:6.2-alpine
+#    hostname: redis
+#    container_name: app_redis_1
+#    command:
+#      - 'redis-server'
+#      - '--requirepass myStrongPassword'
+#    ports:
+#      - 36379:6379
+# И пример nginx
+#  nginx:
+#    image: nginx:1.23.2-alpine
+#    restart: always
+#    depends_on:
+#      - backend
+#    volumes:
+#      - ./frontend/:/usr/share/nginx/html/
+#      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+#      - static_value:/var/html/static/
+#    ports:
+#      - "80:80"
+#    env_file:
+#      - .env
 volumes:
   app_pg_data:
     driver: "local"
