@@ -19,6 +19,8 @@
 ## Сервис должен выдерживать нагрузку и обрабатывать ситуации с параллельными запросами на создание публикации, голосование и т.п.
 
 # Запуск
+- Для клонирования репозитория
+`git clone https://github.com/bezbozhnik/voting-system.git --config core.autocrlf=input`
 - Запускаем в корневой папке проект:
 `docker-compose -f .\docker-compose.yml up -d`
 - Создаем миграции
