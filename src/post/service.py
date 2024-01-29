@@ -35,8 +35,7 @@ async def vote(post_id: int, rating: VoteType, user: JWTData) -> dict[str, Any] 
     if not rating:
         await Voter().cancel(user.user_id, post_id)
         return
-    else:
-        return await Voter().change(rating, user.user_id, post_id)
+    return await Voter().change(rating, user.user_id, post_id)
 
 
 async def get_latest_posts():

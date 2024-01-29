@@ -115,18 +115,17 @@ class Voter(Base):
                 if vote.rate != rating:
                     await conn.execute(update(Post).values(rating=Post.rating + 2 * rating).where(Post.id == post_id))
                 return
-            else:
-                await conn.execute(
-                    update(Post).values(
-                        rating=Post.rating + rating,
-                        votes_amount=Post.votes_amount + 1)
-                    .where(Post.id == post_id))
-                return await conn.execute(insert(Voter).values(
-                    {
-                        "user_id": user_id,
-                        "post_id": post_id,
-                        "rate": rating
-                    }).returning(Voter))
+            await conn.execute(
+                update(Post).values(
+                    rating=Post.rating + rating,
+                    votes_amount=Post.votes_amount + 1)
+                .where(Post.id == post_id))
+            return await conn.execute(insert(Voter).values(
+                {
+                    "user_id": user_id,
+                    "post_id": post_id,
+                    "rate": rating
+                }).returning(Voter))
 
 
 async def fetch_one(select_query: Select | Insert | Update) -> dict[str, Any] | None:
